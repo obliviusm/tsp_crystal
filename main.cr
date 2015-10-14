@@ -1,4 +1,6 @@
 require "json"
 require "./services/json_parser.cr"
 
-p JSONparser.get_tcp_problem "br17"
+parser = JSONparser.new "br17"
+initial_solutions = parser.get_initial_solutions
+p initial_solutions
