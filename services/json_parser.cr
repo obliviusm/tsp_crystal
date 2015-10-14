@@ -20,7 +20,7 @@ class JSONparser
   def get_graph_costs
     graph = ([] of Array(Int32))
     ((@tsp_problem["graph"] as Hash)["vertex"] as Array).each_with_index do |vertex, i|
-      node = Array.new(@size, 9999)
+      node = Array.new(@size, INF)
       ((vertex as Hash)["edge"] as Array).each do |edge|
         edge = edge as Hash
         cost = (edge["-cost"] as String).to_f.to_i

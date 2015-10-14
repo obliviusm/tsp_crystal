@@ -1,7 +1,13 @@
 require "json"
-require "./services/json_parser.cr"
+require "./services/*"
+require "./lib/swap_two_elements.cr"
+require "./lib/x_comparator.cr"
+require "./lib/tsp_solution.cr"
+require "./algorithms/*"
 
-parser = JSONparser.new "br17"
+INF = 9999
+
+parser = JSONparser.new "bays29"
 initial_solutions = parser.get_initial_solutions
 graph = parser.get_graph_costs
-p graph
+p TSPSolution.new(graph, initial_solutions[0])
