@@ -11,7 +11,9 @@ class HillClimbing
 
   def solve
     found_new_solution = true
+    # i = 0
     while found_new_solution
+      # i+=1
       found_new_solution = false
       neighborhood do |solution_new|
         # p "#{solution_new}: #{solution_new.f}"
@@ -22,6 +24,7 @@ class HillClimbing
         end
       end
     end
+    # p i
     @solution
   end
 end

@@ -23,8 +23,8 @@ class JSONparser
       node = Array.new(@size, INF)
       ((vertex as Hash)["edge"] as Array).each do |edge|
         edge = edge as Hash
-        cost = (edge["-cost"] as String).to_f.to_i32
-        index = (edge["#text"] as String).to_i32
+        cost = (edge["_cost"] as String).to_f.to_i32
+        index = (edge["__text"] as String).to_i32
         node[index] = cost
       end
       graph.push node

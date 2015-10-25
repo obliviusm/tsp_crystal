@@ -37,9 +37,9 @@ module SwapTwoElements
     end
 
     tsp = TSPSolution.new w, swap_path(i, j), (f + delta)
-    if tsp.f != tsp.distance
-      raise "(#{i},#{j})#{n} #{x}:#{f} #{swap_path(i, j)} #{tsp.f} #{tsp.distance} #{delta}"
-    end
+    # if tsp.f != tsp.distance
+    #   raise "(#{i},#{j})#{n} #{x}:#{f} #{swap_path(i, j)} #{tsp.f} #{tsp.distance} #{delta}"
+    # end
     tsp
   end
 

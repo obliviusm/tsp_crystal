@@ -33,6 +33,7 @@ class Solver
     time = Timer.exec_time do
       algorithm.solve
     end
+    p time
     # p 1
     solution = algorithm.solution
     TSPSolvedData.new(initial_tsp_solutions, solution, time)
