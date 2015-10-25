@@ -20,10 +20,10 @@ module SwapTwoElements
   def swap i, j
     i, j = [i, j].sort
 
+    # 28 0 1
     i0, i1, i2 = x[i - 1], x[i], x[i + 1]
-    j0, j1, j2 = x[j - 1], x[j], x[j + 1]
-    j2 = x[0] if j == n
-    #p [@n, i, j, i0, i1, i2, j0, j1, j2]
+    # 26 27 28
+    j0, j1, j2 = x[j - 1], x[j], x[(j + 1) % (n+1)]
     delta = 0
     if i == 0 && j == n
       delta = (w[j0][i1] + w[i1][j1] + w[j1][i2]) -(w[j0][j1] + w[j1][i1] + w[i1][i2])
@@ -36,7 +36,11 @@ module SwapTwoElements
       delta += w[i0][j1] - w[i0][i1]
     end
 
-    TSPSolution.new w, swap_path(i, j), (f + delta)
+    tsp = TSPSolution.new w, swap_path(i, j), (f + delta)
+    if tsp.f != tsp.distance
+      raise "(#{i},#{j})#{n} #{x}:#{f} #{swap_path(i, j)} #{tsp.f} #{tsp.distance} #{delta}"
+    end
+    tsp
   end
 
   def swap_path i, j

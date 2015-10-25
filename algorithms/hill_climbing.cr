@@ -1,5 +1,6 @@
 class HillClimbing
   include Neighborhood
+  extend SingleSolutionBased
   getter :solution
 
   def initialize w, x
@@ -13,13 +14,12 @@ class HillClimbing
     while found_new_solution
       found_new_solution = false
       neighborhood do |solution_new|
-        p 1# p solution_new.f.to_s + " " + @solution.f.to_s
+        # p "#{solution_new}: #{solution_new.f}"
         if solution_new < @solution
           @solution = solution_new
           found_new_solution = true
           break
         end
-        p 2
       end
     end
     @solution

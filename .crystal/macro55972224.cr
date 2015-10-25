@@ -1,0 +1,7 @@
+    
+      
+        def type=(@type)
+        end
+      
+    
+  

@@ -1,0 +1,7 @@
+    
+      
+        def fore=(@fore)
+        end
+      
+    
+  

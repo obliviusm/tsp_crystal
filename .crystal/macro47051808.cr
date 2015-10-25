@@ -1,0 +1,8 @@
+    
+      
+
+      def bytesize
+        @bytesize
+      end
+    
+  

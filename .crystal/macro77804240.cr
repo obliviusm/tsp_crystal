@@ -1,0 +1,7 @@
+    
+      
+        def next=(@next)
+        end
+      
+    
+  
