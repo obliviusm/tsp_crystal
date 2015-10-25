@@ -1,14 +1,14 @@
 class TSPSolution
-  include Comparable(Int)
+  include Comparable(TSPSolution)
   include SwapTwoElements
   include XComparator
-  # attr_reader :w, :n, :x, :f
+  getter :w, :n, :x, :f
 
-  def initialize w, x, f = nil
+  def initialize w, x, f = 0
     @w = w              # graph weights
     @x = x              # path through cities
     @n = x.size - 1     # last index in x
-    @f = f || distance  # length of path
+    @f = (f == 0 ? distance : f)  # length of path
   end
 
   def <=> (other)

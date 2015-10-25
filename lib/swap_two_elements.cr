@@ -36,7 +36,7 @@ module SwapTwoElements
       delta += w[i0][j1] - w[i0][i1]
     end
 
-    TSPSolution.new w, swap_path(i, j), f + delta
+    TSPSolution.new w, swap_path(i, j), (f + delta)
   end
 
   def swap_path i, j

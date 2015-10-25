@@ -6,11 +6,11 @@ class JSONparser
   end
 
   def get_initial_solutions
-    initial_solutions = ([] of Array(Int8))
+    initial_solutions = ([] of Array(Int32))
     ((@tsp_problem["initialSolutions"] as Hash)["path"] as Array).each do |path|
-      solution = ([] of Int8)
+      solution = ([] of Int32)
       ((path as Hash)["vertex"] as Array).each do |vertex|
-        solution.push (vertex as String).to_i8
+        solution.push (vertex as String).to_i32
       end
       initial_solutions.push solution
     end
@@ -23,8 +23,8 @@ class JSONparser
       node = Array.new(@size, INF)
       ((vertex as Hash)["edge"] as Array).each do |edge|
         edge = edge as Hash
-        cost = (edge["-cost"] as String).to_f.to_i
-        index = (edge["#text"] as String).to_i
+        cost = (edge["-cost"] as String).to_f.to_i32
+        index = (edge["#text"] as String).to_i32
         node[index] = cost
       end
       graph.push node
